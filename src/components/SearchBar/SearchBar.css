@@ -1,0 +1,10 @@
+/* SearchBar.css */
+.SearchBar {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .SearchButton {
+    margin-left: 10px;
+  }
+  

@@ -1,0 +1,6 @@
+/* Tracklist.css */
+.Tracklist {
+    display: flex;
+    flex-direction: column;
+  }
+  
