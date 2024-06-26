@@ -14,8 +14,8 @@ function Track() {
   return (
     <div className="Track">
       <div className="Track-information">
-        <h3>Track Name: </h3>
-        <p>Artist | Album</p>
+        <h3>Track Name: {tracks[0].name} </h3>
+        <p>Artist: {tracks[0].artist} | Album: {tracks[0].album}</p>
       </div>
       <button className="Track-action">+</button>
     </div>
