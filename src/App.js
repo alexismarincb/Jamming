@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Jammmingg</h1>
+      <h1>Jamming</h1>
       <SearchBar />
       <div className="App-playlist">
         <SearchResults />
