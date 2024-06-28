@@ -13,7 +13,7 @@ function SearchResults() {
   return (
     <div className="SearchResults">
       <h2>Results</h2>
-      { tracks && <Tracklist tracks={tracks} />}
+      { tracks && <Tracklist tracks={tracks} trackOrPlay="track"/>}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Track.css';
 
-function Track({ track }) {
-    const [plusOrMinus, setPlusOrMinus] = useState("yes");
+function Track({ track, trackOrPlay }) {
+    const [plusOrMinus, setPlusOrMinus] = useState(trackOrPlay === "track" ? "plus" : "minus");
 
     return (
         <div className="Track">
@@ -10,7 +10,7 @@ function Track({ track }) {
                 <h3>Track Name: {track.name}</h3>
                 <p>Artist: {track.artist} | Album: {track.album}</p>
             </div>
-            {plusOrMinus === "yes" ? (
+            {plusOrMinus === "plus" ? (
                 <button className="Track-action">+</button>
             ) : (
                 <button className="Track-action">-</button>
