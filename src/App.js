@@ -5,9 +5,10 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 
 function App() {
+
   return (
     <div className="App">
-      <h1>Jammming</h1>
+      <h1>Jammmingg</h1>
       <SearchBar />
       <div className="App-playlist">
         <SearchResults />
@@ -15,6 +16,7 @@ function App() {
       </div>
     </div>
   );
+
 }
 
 export default App;
