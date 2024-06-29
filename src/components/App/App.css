@@ -1,14 +1,23 @@
 /* App.css */
-*{
-    background-color: black;
-    color: white;
+* {
+  background-color: black;
+  color: white;
 }
+
 .App {
-    text-align: center;
-  }
-  
-  .App-playlist {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+  text-align: center;
+}
+
+/* AddSongs.css */
+.AddSongs {
+  display: flex;
+  justify-content: space-between; /* Aligns items with space between them */
+}
+
+.SearchResults {
+  width: 45%; /* Adjust width as needed */
+}
+
+.Playlist {
+  width: 45%; /* Adjust width as needed */
+}

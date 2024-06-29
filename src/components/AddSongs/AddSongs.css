@@ -1,13 +1,10 @@
-/* App.css */
-* {
-    background-color: black;
-    color: white;
+/* AddSongs.css */
+.AddSongs {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
 }
 
-.AddSongs {
-    text-align: center;
-
-    width: 45%;
-
-
+.SearchResults, .Playlist {
+    width: 45%; /* Adjust width as needed */
+    margin: 0 2rem; /* Add space on both sides */
 }

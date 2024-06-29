@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
-import AddSongs from "../AddSongs/AddSongs.js";
+import AddSongs from "../AddSongs/AddSongs";
 
 function App() {
   return (

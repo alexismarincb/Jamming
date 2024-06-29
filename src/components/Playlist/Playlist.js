@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Playlist.css";
 import Track from "../Track/Track";
 
-function Playlist({ playlist, addTrackToPlaylist }) {
+function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
   // This function adds a track to the playlist
 
   return (
@@ -16,6 +16,7 @@ function Playlist({ playlist, addTrackToPlaylist }) {
               key={track.id}
               track={track}
               addTrackToPlaylist={addTrackToPlaylist}
+              removeTrackFromPlaylist = {removeTrackFromPlaylist}
             />
           ))}
           <button className="Playlist-save">SAVE TO SPOTIFY</button>

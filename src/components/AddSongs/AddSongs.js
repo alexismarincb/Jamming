@@ -9,10 +9,14 @@ function AddSongs() {
     setPlaylist((prevPlaylist) => [...prevPlaylist, track]); // Using functional update for state
   };
 
+  const removeTrackFromPlaylist = (trackId) => {
+    setPlaylist((prevPlaylist) => prevPlaylist.filter(item => item.id !== trackId));
+};
+
   return (
     <div className="AddSongs">
         <SearchResults addTrackToPlaylist={addTrackToPlaylist} />
-        <Playlist playlist={playlist} addTrackToPlaylist={addTrackToPlaylist} />
+        <Playlist playlist={playlist} addTrackToPlaylist={addTrackToPlaylist} removeTrackFromPlaylist = {removeTrackFromPlaylist} />
       </div>
   );
 }

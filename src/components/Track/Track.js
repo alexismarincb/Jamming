@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './Track.css';
 
-function Track({ track, trackOrPlay, addTrackToPlaylist }) {
+function Track({ track, trackOrPlay, addTrackToPlaylist, removeTrackFromPlaylist}) {
     const [plusOrMinus, setPlusOrMinus] = useState(trackOrPlay === "track" ? "plus" : "minus");
     const handleAddToPlaylist = () => {
         addTrackToPlaylist({ ...track });
+    };
+
+    const handleRemoveFromPlaylist = () => {
+        removeTrackFromPlaylist(track.id);
     };
 
     return (
@@ -16,7 +20,7 @@ function Track({ track, trackOrPlay, addTrackToPlaylist }) {
             {plusOrMinus === "plus" ? (
                 <button className="Track-action" onClick={handleAddToPlaylist}>+</button>
             ) : (
-                <button className="Track-action">-</button>
+                <button className="Track-action" onClick={handleRemoveFromPlaylist}>-</button>
             )}
         </div>
     );
