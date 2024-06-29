@@ -4,8 +4,7 @@ import './Track.css';
 function Track({ track, trackOrPlay, addTrackToPlaylist }) {
     const [plusOrMinus, setPlusOrMinus] = useState(trackOrPlay === "track" ? "plus" : "minus");
     const handleAddToPlaylist = () => {
-        const newTrack = { ...track };
-        addTrackToPlaylist(newTrack);
+        addTrackToPlaylist({ ...track });
     };
 
     return (

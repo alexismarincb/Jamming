@@ -10,6 +10,8 @@ function SearchResults({ addTrackToPlaylist }) {
     // Add more tracks as needed
   ];
 
+  const understanding = 2
+
   return (
     <div className="SearchResults">
       <h2>Results</h2>

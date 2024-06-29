@@ -1,0 +1,13 @@
+/* App.css */
+* {
+    background-color: black;
+    color: white;
+}
+
+.AddSongs {
+    text-align: center;
+
+    width: 45%;
+
+
+}
