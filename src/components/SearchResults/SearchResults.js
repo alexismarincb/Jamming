@@ -23,7 +23,7 @@ function SearchResults({ addTrackToPlaylist }) {
     </div>
   );
 }
-
+ 
 export default SearchResults;
 
 //

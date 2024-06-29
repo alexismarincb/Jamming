@@ -26,5 +26,5 @@ function Playlist({ playlist, addTrackToPlaylist }) {
     </div>
   );
 }
-
+ 
 export default Playlist;

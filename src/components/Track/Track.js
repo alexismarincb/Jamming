@@ -22,5 +22,5 @@ function Track({ track, trackOrPlay, addTrackToPlaylist }) {
         </div>
     );
 }
-
+ 
 export default Track;

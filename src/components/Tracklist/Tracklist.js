@@ -15,6 +15,6 @@ function Tracklist({ tracks, trackOrPlay, addTrackToPlaylist }) {
       ))}
     </div>
   );
-}
+} 
 
 export default Tracklist;
