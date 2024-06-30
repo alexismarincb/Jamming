@@ -3,6 +3,7 @@ import "./AddSongs.css";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
+
 function AddSongs() {
   const [playlist, setPlaylist] = useState([]);
   const addTrackToPlaylist = (track) => {

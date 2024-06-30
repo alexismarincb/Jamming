@@ -14,7 +14,7 @@ function Track({ track, trackOrPlay, addTrackToPlaylist, removeTrackFromPlaylist
     return (
         <div className="Track">
             <div className="Track-information">
-                <h3>Track Name: {track.name}</h3>
+                <h3>{track.name}</h3>
                 <p>Artist: {track.artist} | Album: {track.album}</p>
             </div>
             {plusOrMinus === "plus" ? (

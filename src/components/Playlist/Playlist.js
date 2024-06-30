@@ -3,8 +3,6 @@ import "./Playlist.css";
 import Track from "../Track/Track";
 
 function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
-  // This function adds a track to the playlist
-
   return (
     <div className="Playlist">
       <h2>Playlist</h2>
@@ -16,7 +14,7 @@ function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
               key={track.id}
               track={track}
               addTrackToPlaylist={addTrackToPlaylist}
-              removeTrackFromPlaylist = {removeTrackFromPlaylist}
+              removeTrackFromPlaylist={removeTrackFromPlaylist}
             />
           ))}
           <button className="Playlist-save">SAVE TO SPOTIFY</button>
@@ -27,5 +25,5 @@ function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
     </div>
   );
 }
- 
+
 export default Playlist;
