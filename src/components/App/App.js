@@ -9,12 +9,9 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if the user is authenticated
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    if (code) {
-      // Exchange the code for an access token and store it
-      // This is where you'll add code to exchange the code for an access token
+    // Check if access token is available in local storage
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
       setIsAuthenticated(true);
     }
   }, []);
