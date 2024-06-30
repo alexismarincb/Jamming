@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 const Auth = () => {
   useEffect(() => {
     const clientId = '0b2a29a16f6c44fabe0635e67ccc8d78';
-    const clientSecret = 'YOUR_CLIENT_SECRET'; // Replace with your actual client secret
+    const clientSecret = 'abf9e898b0be405e84c58b50e54607a7'; // Replace with your actual client secret
     const redirectUri = 'http://localhost:3000/callback'; // Your registered redirect URI
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');

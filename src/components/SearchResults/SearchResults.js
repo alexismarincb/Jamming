@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./SearchResults.css";
 import Tracklist from "../Tracklist/Tracklist";
-import { searchTracks } from "../../services/spotifyService";
+import { searchTracks } from "../SpotifyService/SpotifyService";
 
 function SearchResults({ addTrackToPlaylist }) {
   const [tracks, setTracks] = useState([]);
