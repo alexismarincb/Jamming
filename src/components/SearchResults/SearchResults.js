@@ -1,29 +1,42 @@
-import React from "react";
+// src/components/SearchResults/SearchResults.js
+import React, { useState, useEffect } from "react";
 import "./SearchResults.css";
 import Tracklist from "../Tracklist/Tracklist";
+import { searchTracks } from "../../services/spotifyService";
 
 function SearchResults({ addTrackToPlaylist }) {
-  const tracks = [
-    { id: 1, name: "Track 1", artist: "Artist 1", album: "Album 1" },
-    { id: 2, name: "Track 2", artist: "Artist 2", album: "Album 2" },
-    { id: 3, name: "Track 3", artist: "Artist 3", album: "Album 3" },
-    // Add more tracks as needed
-  ];
+  const [tracks, setTracks] = useState([]);
+  const accessToken = localStorage.getItem('accessToken'); // Retrieve the access token
+
+  useEffect(() => {
+    const fetchTracks = async () => {
+      try {
+        const fetchedTracks = await searchTracks('Your Search Query Here', accessToken);
+        setTracks(fetchedTracks);
+      } catch (error) {
+        console.error('Error fetching tracks:', error);
+      }
+    };
+
+    if (accessToken) {
+      fetchTracks();
+    }
+  }, [accessToken]);
 
   return (
     <div className="SearchResults">
       <h2>Results</h2>
-      {tracks && (
+      {tracks.length > 0 ? (
         <Tracklist
           addTrackToPlaylist={addTrackToPlaylist}
           tracks={tracks}
           trackOrPlay="track"
         />
+      ) : (
+        <p>No tracks found</p>
       )}
     </div>
   );
 }
- 
-export default SearchResults;
 
-//
+export default SearchResults;
