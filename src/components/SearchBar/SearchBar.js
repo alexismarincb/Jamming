@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
-import { searchTracks } from '../../services/spotifyService';
+import { searchTracks } from '../SpotifyService/SpotifyService';
 
 function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');

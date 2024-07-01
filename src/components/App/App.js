@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from "react";
+// App.js
+import React from "react";
 import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
 import AddSongs from "../AddSongs/AddSongs";
-import Auth from "../Auth/Auth"; // Import the Auth component
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Check if access token is available in local storage
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  if (!isAuthenticated) {
-    return <Auth />;
-  }
-
   return (
     <div className="App">
       <h1>Jamming</h1>

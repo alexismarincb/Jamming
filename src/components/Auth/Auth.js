@@ -1,4 +1,3 @@
-// Auth.js
 import React, { useEffect } from "react";
 
 const Auth = () => {
@@ -28,11 +27,9 @@ const Auth = () => {
       .then(data => {
         const accessToken = data.access_token;
         const refreshToken = data.refresh_token;
-        // Save tokens for future use (e.g., in local storage)
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
-        // Redirect or update state to show that the user is authenticated
-        window.location.href = '/';
+        window.location.href = '/'; // Redirect only after successfully obtaining tokens
       })
       .catch(error => console.error('Error:', error));
     } else {

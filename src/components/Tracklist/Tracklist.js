@@ -1,3 +1,4 @@
+// Tracklist.js
 import React from "react";
 import "./Tracklist.css";
 import Track from "../Track/Track";
@@ -15,6 +16,7 @@ function Tracklist({ tracks, trackOrPlay, addTrackToPlaylist }) {
       ))}
     </div>
   );
-} 
+}
 
 export default Tracklist;
+
