@@ -1,10 +1,15 @@
-/* AddSongs.css */
 .AddSongs {
     display: flex;
-    justify-content: center; /* Center items horizontally */
-}
-
-.SearchResults, .Playlist {
-    width: 45%; /* Adjust width as needed */
-    margin: 0 2rem; /* Add space on both sides */
-}
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .SearchResults, .Playlist {
+    width: 48%;
+    margin: 0;
+    background-color: #181818;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  

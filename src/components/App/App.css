@@ -1,23 +1,19 @@
-/* App.css */
 * {
-  background-color: black;
-  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #121212;
+  color: #FFFFFF;
 }
 
 .App {
   text-align: center;
+  padding: 20px;
 }
 
-/* AddSongs.css */
-.AddSongs {
+.App-playlist {
   display: flex;
-  justify-content: space-between; /* Aligns items with space between them */
-}
-
-.SearchResults {
-  width: 45%; /* Adjust width as needed */
-}
-
-.Playlist {
-  width: 45%; /* Adjust width as needed */
+  justify-content: space-between;
+  margin-top: 20px;
 }

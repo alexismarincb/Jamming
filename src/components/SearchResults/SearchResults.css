@@ -1,5 +1,8 @@
-/* SearchResults.css */
 .SearchResults {
-    width: 45%;
-  }
-  
+  width: 100%;
+}
+
+.SearchResults h2 {
+  border-bottom: 2px solid #1DB954;
+  padding-bottom: 10px;
+}

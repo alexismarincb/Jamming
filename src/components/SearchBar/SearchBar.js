@@ -6,17 +6,14 @@ function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = async () => {
-    try {
-      const accessToken = localStorage.getItem('accessToken');
-      if (!accessToken) {
-        throw new Error('Access token not available');
-      }
-
-      const tracks = await searchTracks(searchTerm, accessToken);
-      onSearch(tracks); // Pass the fetched tracks to parent component
-    } catch (error) {
-      console.error('Error searching tracks:', error);
-      // Handle error (e.g., display error message to user)
+    const urlToFetch = `https://api.spotify.com/v1/search?q=${searchTerm}&type=track`
+    const response = await fetch(urlToFetch, {
+      //
+      headers: { Authorization: 'Bearer BQBO83Zfsx5b9so1rl3WVB2qPjevW4bZjrhqHUapfn0KOUXz-FmDdQ3WO9cisNBNEYFot7H2En0e7TEL3Szh2swXVMVQ9j3JPBpkywWGJNcJ1XbrNwE' }
+    });
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      console.log(jsonResponse)
     }
   };
 
