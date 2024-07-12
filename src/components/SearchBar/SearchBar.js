@@ -20,12 +20,14 @@ function SearchBar({ sendData }) {
 
       // Check if there are tracks found
       if (parsedData.length > 0) {
-        sendData({
-          id: parsedData[0].id,
-          name: parsedData[0].name,
-          artist: parsedData[0].artists[0].name,
-          album: parsedData[0].album.name
-        });
+        const tracksArray = parsedData.map(track => ({
+          id: track.id,
+          name: track.name,
+          artist: track.artists[0].name,
+          album: track.album.name
+        }));
+
+        sendData(tracksArray);
       } else {
         console.error('No tracks found');
       }

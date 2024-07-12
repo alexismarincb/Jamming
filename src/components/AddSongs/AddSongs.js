@@ -20,6 +20,8 @@ function AddSongs() {
     setListOfSongs(data);
   };
 
+  console.log(listOfSongs)//To check if the array/object looks fine
+
   return (
     <div className="AddSongs">
       <div className="SearchBar">
