@@ -9,7 +9,7 @@ function SearchBar({ onSearch }) {
     const urlToFetch = `https://api.spotify.com/v1/search?q=${searchTerm}&type=track`
     const response = await fetch(urlToFetch, {
       //
-      headers: { Authorization: 'Bearer BQBO83Zfsx5b9so1rl3WVB2qPjevW4bZjrhqHUapfn0KOUXz-FmDdQ3WO9cisNBNEYFot7H2En0e7TEL3Szh2swXVMVQ9j3JPBpkywWGJNcJ1XbrNwE' }
+      headers: { Authorization: 'Bearer BQDAJS8Qp1omxhxkf8xurhWuJRyhuesYsC0FuDQOrkntWgM2NtExv1MFz4Pzzxp5F_Ec1HOu7ukK0dMZEXkRBZlTVRmqijhI0xkDUcunXYc9-OWU0tE' }
     });
     if (response.ok) {
       const jsonResponse = await response.json();

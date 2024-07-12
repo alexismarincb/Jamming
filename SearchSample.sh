@@ -1,3 +1,3 @@
 curl --request GET \
   --url 'https://api.spotify.com/v1/search?q=hola&type=album' \
-  --header 'Authorization: Bearer BQBO83Zfsx5b9so1rl3WVB2qPjevW4bZjrhqHUapfn0KOUXz-FmDdQ3WO9cisNBNEYFot7H2En0e7TEL3Szh2swXVMVQ9j3JPBpkywWGJNcJ1XbrNwE'
+  --header 'Authorization: Bearer BQDAJS8Qp1omxhxkf8xurhWuJRyhuesYsC0FuDQOrkntWgM2NtExv1MFz4Pzzxp5F_Ec1HOu7ukK0dMZEXkRBZlTVRmqijhI0xkDUcunXYc9-OWU0tE'
