@@ -1,15 +1,25 @@
 .AddSongs {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .SearchResults, .Playlist {
-    width: 48%;
-    margin: 0;
-    background-color: #181818;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.SearchBar {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.ResultsAndPlaylist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.SearchResults, .Playlist {
+  width: 48%;
+  margin: 0;
+  background-color: #181818;
+  padding: 20px;
+  border-radius: 8px;
+}
