@@ -1,50 +1,70 @@
-// Playlist.js
 import React, { useState } from 'react';
 import "./Playlist.css";
 import Track from "../Track/Track";
 
 function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
+
   const [playlistName, setPlaylistName] = useState(''); // State for the playlist name
 
   const createPlaylistSpotify = async () => {
     // Fetch a new token
-    const tokenResponse = await fetch('https://accounts.spotify.com/api/token', { // Fetching token from Spotify Accounts API
-      method: 'POST', // Method to fetch token is POST
+    const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded', // Header to specify the content type
-        'Authorization': 'Basic ' + btoa('0b2a29a16f6c44fabe0635e67ccc8d78:abf9e898b0be405e84c58b50e54607a7') // Authorization header with base64-encoded client_id and client_secret
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + btoa('0b2a29a16f6c44fabe0635e67ccc8d78:abf9e898b0be405e84c58b50e54607a7')
       },
-      body: 'grant_type=client_credentials' // Body to specify grant type
+      body: 'grant_type=client_credentials'
     });
 
-    if (tokenResponse.ok) { // Check if token response is okay
-      const tokenJson = await tokenResponse.json(); // Parse token response as JSON
-      const accessToken = tokenJson.access_token; // Extract access token from response
+    if (tokenResponse.ok) {
+      const tokenJson = await tokenResponse.json();
+      const accessToken = tokenJson.access_token;
 
       // Create a new playlist
       const userId = 'alexismarincb'; // Replace with the actual user ID
-      const urlToFetch = `https://api.spotify.com/v1/users/${userId}/playlists`; // Spotify API endpoint for creating a playlist
-      const response = await fetch(urlToFetch, {
-        method: 'POST', // Method to create a new playlist is POST
+      const createPlaylistUrl = `https://api.spotify.com/v1/users/${userId}/playlists`;
+      const createPlaylistResponse = await fetch(createPlaylistUrl, {
+        method: 'POST',
         headers: {
-          'Authorization': `Bearer ${accessToken}`, // Use the access token for authorization
-          'Content-Type': 'application/json' // Specify content type as JSON
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ // Send the playlist data in the request body
-          name: playlistName, // Use the playlist name from the state
+        body: JSON.stringify({
+          name: playlistName,
           description: "Created on Jamming",
           public: false
         })
       });
 
-      if (response.ok) {
-        const jsonResponse = await response.json();
-        console.log('Playlist created:', jsonResponse); // Log the response from Spotify API
+      if (createPlaylistResponse.ok) {
+        const playlistData = await createPlaylistResponse.json();
+        console.log('Playlist created:', playlistData);
+
+        // Add tracks to the playlist
+        const addTracksUrl = `https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`;
+        const addTracksResponse = await fetch(addTracksUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            uris: [] // Add the track URIs here later
+          })
+        });
+
+        if (addTracksResponse.ok) {
+          const addTracksData = await addTracksResponse.json();
+          console.log('Tracks added:', addTracksData);
+        } else {
+          console.error('Failed to add tracks to playlist');
+        }
       } else {
-        console.error('Failed to create playlist'); // Error message if playlist creation fails
+        console.error('Failed to create playlist');
       }
     } else {
-      console.error('Failed to fetch access token'); // Error message if token fetching fails
+      console.error('Failed to fetch access token');
     }
   };
 
@@ -54,7 +74,8 @@ function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
       <input
         placeholder="New Playlist"
         value={playlistName}
-        onChange={(e) => setPlaylistName(e.target.value)} /> 
+        onChange={(e) => setPlaylistName(e.target.value)}
+      />
       {playlist.length > 0 ? (
         <>
           {playlist.map((track) => (
@@ -65,7 +86,8 @@ function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
               removeTrackFromPlaylist={removeTrackFromPlaylist}
             />
           ))}
-          <button className="Playlist-save" onClick={createPlaylistSpotify}>SAVE TO SPOTIFY</button> {/* Button to trigger playlist creation */}
+          <button className="Playlist-save" onClick={createPlaylistSpotify}>SAVE TO SPOTIFY</button>
+          <button className="Playlist-save" onClick={""/*IDK YET, ASK ALEX */}>Temporary LOG IN button</button>
         </>
       ) : (
         <h3>EMPTY PLAYLIST</h3>
