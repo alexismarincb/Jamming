@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./Playlist.css";
 import Track from "../Track/Track";
 
-function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
+function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist, URIs }) {
 
   const [playlistName, setPlaylistName] = useState(''); // State for the playlist name
 
@@ -50,7 +50,7 @@ function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist }) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            uris: [] // Add the track URIs here later
+            uris: [URIs] // Adds the tracks from the URIs state in AddSongs.js
           })
         });
 

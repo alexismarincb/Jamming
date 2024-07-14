@@ -6,14 +6,25 @@ import SearchBar from "../SearchBar/SearchBar";
 
 function AddSongs() {
   const [playlist, setPlaylist] = useState([]);
+  const [uris, setUris] = useState('');
+
+
   const addTrackToPlaylist = (track) => {
-    setPlaylist((prevPlaylist) => [...prevPlaylist, track]);
+    setPlaylist((prevPlaylist) => {
+      const updatedPlaylist = [...prevPlaylist, track];
+      // Anonymous function to create URIs and set state
+      const urisString = updatedPlaylist.map((t) => `spotify:track:${t.id}`).join(',');
+      setUris(urisString);
+      return updatedPlaylist;
+    });
   };
 
   const removeTrackFromPlaylist = (trackId) => {
     setPlaylist((prevPlaylist) => prevPlaylist.filter(item => item.id !== trackId));
   };
 
+
+  
   const [listOfSongs, setListOfSongs] = useState([]);
 
   const handleChildData = (data) => {
@@ -29,7 +40,7 @@ function AddSongs() {
       </div>
       <div className="ResultsAndPlaylist">
         <SearchResults addTrackToPlaylist={addTrackToPlaylist} tracklist={listOfSongs}/>
-        <Playlist playlist={playlist} addTrackToPlaylist={addTrackToPlaylist} removeTrackFromPlaylist={removeTrackFromPlaylist} />
+        <Playlist playlist={playlist} addTrackToPlaylist={addTrackToPlaylist} removeTrackFromPlaylist={removeTrackFromPlaylist} URIs ={uris}/>
       </div>
     </div>
   );
