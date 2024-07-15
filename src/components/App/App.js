@@ -1,7 +1,6 @@
 // App.js
 import React from "react";
 import "./App.css";
-import SearchBar from "../SearchBar/SearchBar";
 import AddSongs from "../AddSongs/AddSongs";
 
 function App() {

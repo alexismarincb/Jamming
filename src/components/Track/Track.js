@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Track.css';
 
 function Track({ track, trackOrPlay, addTrackToPlaylist, removeTrackFromPlaylist }) {
-  const [plusOrMinus, setPlusOrMinus] = useState(trackOrPlay === "track" ? "plus" : "minus");
+  const [plusOrMinus ] = useState(trackOrPlay === "track" ? "plus" : "minus");
 
   const handleAddToPlaylist = () => {
     addTrackToPlaylist({ ...track });
