@@ -37,25 +37,36 @@ function Playlist({ playlist, addTrackToPlaylist, removeTrackFromPlaylist, URIs 
 
       // Add tracks to the playlist
       const addTracksUrl = `https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`;
-      const addTracksResponse = await fetch(addTracksUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          uris: URIs // Passing URIs directly  (YOU NEED TO ARRAY [])
-        })
-      });
 
-      if (addTracksResponse.ok) {
-        const addTracksData = await addTracksResponse.json();
-        console.log('Tracks added:', addTracksData);
+      // Log URIs to verify its content
+      console.log('URIs to be added:', URIs);
+
+      // Ensure URIs is an array of strings
+      if (URIs && URIs.length > 0) {
+        const addTracksResponse = await fetch(addTracksUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            uris: URIs // Passing URIs directly
+          })
+        });
+
+        if (addTracksResponse.ok) {
+          const addTracksData = await addTracksResponse.json();
+          console.log('Tracks added:', addTracksData);
+        } else {
+          const errorData = await addTracksResponse.json();
+          console.error('Failed to add tracks to playlist:', errorData);
+        }
       } else {
-        console.error('Failed to add tracks to playlist');
+        console.error('No URIs provided');
       }
     } else {
-      console.error('Failed to create playlist');
+      const errorData = await createPlaylistResponse.json();
+      console.error('Failed to create playlist:', errorData);
     }
   };
 
